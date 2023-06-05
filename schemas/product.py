@@ -5,11 +5,11 @@ class Product(BaseModel):
         id: Optional[int] = None
         Name: str = Field(max_length=15,min_length=3)
         Brand: str = Field(max_length=15,min_length=3)
-        Description: str = Field(max_length=40,min_length=10)
+        Description: str = Field(max_length=400,min_length=3)
         Price: int = Field(ge=1)
-        Entry_Date : int  = Field(ge=1)
+        Entry_Date : str = Field(max_length=15,min_length=3)
         availability: str = Field(max_length=15,min_length=3)
-        Available_Quantity: str = Field(max_length=15,min_length=3)
+        Available_Quantity: int = Field(ge=1)
 
         class Config:
             schema_extra = {
@@ -18,8 +18,8 @@ class Product(BaseModel):
                     'Name': 'Any',
                     'Brand': "Mattelsa",
                     'Description':"In this clothing store you can find your favorite clothes...",
-                    'Price': 80.000,
-                    'Entry_Date':5/6/2023,
+                    'Price': 80000,
+                    'Entry_Date':"20/02/2023",
                     'availability':'available',
                     "Available_Quantity" : 100,
                 }

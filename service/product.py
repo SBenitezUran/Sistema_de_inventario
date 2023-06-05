@@ -27,21 +27,21 @@ class ProductService():
         Price = product.Price,
         Entry_Date = product.Entry_Date,
         availability = product.availability,
-        Available_Quantiry = product.Available_Quantiry
+        Available_Quantity = product.Available_Quantity
         )
         self.db.add(new_product)
         self.db.commit()
         return 
 
-    def update_product(self,id:int, data:Product):
-        product = self.db.query(ProductModel).filter(ProductModel.id == id).first()
+    def update_product(self, data:Product):
+        product = self.db.query(ProductModel).filter(ProductModel.id == data.id).first()
         product.Name = data.Name
         product.Brand = data.Brand
         product.Description = data.Description
         product.Price = data.Price
         product.Entry_Date = data.Entry_Date
         product.availability = data.availability
-        product.Available_Quantiry = data.Available_Quantiry 
+        product.Available_Quantity = data.Available_Quantity 
         self.db.commit()
         return
 

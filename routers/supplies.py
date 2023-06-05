@@ -27,16 +27,16 @@ def create_supplies(supplies:Supplies):
     SuppliesService(db).create_supplies(supplies)
     return JSONResponse(content={"message":"supplies created successfully", "status_code" : 201})
 
-@supplies_router.put('/supplies{id}', tags =['supplies'])
-def update_supplies(id:int,supplies:Supplies):
+@supplies_router.put('/supplies/{id}', tags =['supplies'])
+def update_supplies(id:int,data:Supplies):
     db = Session()
     result = SuppliesService(db).get_for_id(id)
     if not result:
         return JSONResponse(content={"message":"supplies don't gound", "status_code":404})
-    SuppliesService(db).update_supplies(supplies)
+    SuppliesService(db).update_supplies(id,data)
     return JSONResponse(content={"message":"supplies update successfully", "status_code": 202}, status_code=202)
     
-@supplies_router.delete('/supplies{id}', tags =['supplies'])
+@supplies_router.delete('/supplies/{id}', tags =['supplies'])
 def delete_supplies(id:int):
     db = Session()
     result = SuppliesService(db).get_for_id(id)

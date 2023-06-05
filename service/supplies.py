@@ -1,5 +1,5 @@
 from models.supplies import Supplies as SuppliesModel
-from schemas.supplies import Supplies 
+from schemas.supplies import Supplies
 
 class SuppliesService():
     def __init__(self, db):
@@ -24,9 +24,9 @@ class SuppliesService():
         result = self.db.query(SuppliesModel).filter(SuppliesModel.id == id). first()
         return result
     
-    def update_supplies(self,data):
-        supplies = self.db.query(SuppliesModel).filter(SuppliesModel.id == data.id). first()
-        supplies.Supplier_Id = data.Supplier_ID
+    def update_supplies(self,id:int,data:Supplies):
+        supplies = self.db.query(SuppliesModel).filter(SuppliesModel.id == id). first()
+        supplies.Supplier_ID = data.Supplier_ID
         supplies.Product_ID = data.Product_ID
         supplies.Purchase_Price = data.Purchase_Price 
         self.db.commit()

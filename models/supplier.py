@@ -9,7 +9,7 @@ class Supplier(Base):
 
     id = Column(Integer, primary_key=True)
     Name = Column(String)
-    Address = Column(Integer)
+    Address = Column(String)
     Phone = Column(Integer)
     Email = Column(String)
    

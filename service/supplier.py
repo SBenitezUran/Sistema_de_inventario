@@ -11,7 +11,7 @@ class SupplierService():
         result = self.db.query(SupplierModel).all()
         return result
 
-    def get_supplier(self,id:int):
+    def get_for_id(self,id:int):
         result = self.db.query(SupplierModel).filter(SupplierModel.id == id).first()
         return result
 
@@ -31,8 +31,8 @@ class SupplierService():
         self.db.commit()
         return 
 
-    def update_supplier(self,id:int, data:Supplier):
-        supplier = self.db.query(SupplierModel).filter(SupplierModel.id == id).first()
+    def update_supplier(self, data:Supplier):
+        supplier = self.db.query(SupplierModel).filter(SupplierModel.id == data.id).first()
         supplier.Name = data.Name
         supplier.Address = data.Address
         supplier.Phone = data.Phone
