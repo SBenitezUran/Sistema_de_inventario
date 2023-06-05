@@ -8,6 +8,8 @@ class Supplies(Base):
     __tablename__ ="supplies"
 
     id = Column(Integer, primary_key=True)
-    Product_ID = Column(str, ForeignKey("Product.ID"))
-    Supplier_ID = Column(Integer, ForeignKey("Supplier_ID"))
+    Supplier_ID = Column(Integer, ForeignKey("supplier.id"))
+    Product_ID = Column(Integer, ForeignKey("product.id"))
     Purchase_Price = Column(Integer)
+    
+     
