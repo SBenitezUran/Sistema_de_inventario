@@ -7,15 +7,15 @@ class ProductService():
     def __init__(self,db) -> None:
         self.db = db
 
-    def get_product(self):
+    def get_products(self):
         result = self.db.query(ProductModel).all()
         return result
 
-    def get_product(self,id:int):
+    def get_for_id(self,id:int):
         result = self.db.query(ProductModel).filter(ProductModel.id == id).first()
         return result
 
-    def get_product_by_release_contry(self,release_contry:str):
+    def get_products_by_release_contry(self,release_contry:str):
         result = self.db.query(ProductModel).filter(ProductModel.release_contry == release_contry).all()
         return result        
 

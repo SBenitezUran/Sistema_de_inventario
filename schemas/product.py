@@ -1,7 +1,7 @@
 from pydantic import BaseModel, Field
 from typing import Optional 
 
-class Movie(BaseModel):
+class Product(BaseModel):
         id: Optional[int] = None
         Name: str = Field(max_length=15,min_length=3)
         Brand: str = Field(max_length=15,min_length=3)

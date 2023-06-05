@@ -8,9 +8,9 @@ from config.database import Session
 product_router = APIRouter()
 
 @product_router.get('/product', tags=['product'], status_code=200)
-def get_product():
+def get_products():
     db = Session()
-    result = ProductService(db).get_product()
+    result = ProductService(db).get_products()
     return JSONResponse(content=jsonable_encoder(result), status_code = 200)
     
     

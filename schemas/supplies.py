@@ -2,7 +2,7 @@ from pydantic import BaseModel, Field
 
 from typing import Optional
 
-class   Supplies(BaseModel):
+class  Supplies(BaseModel):
    id : Optional[int] = None
    Supplier_ID :int = Field(ge=1, description="ForeignKey Supplier")
    Product_ID :int= Field(ge=1, description="ForeingKey Product")
